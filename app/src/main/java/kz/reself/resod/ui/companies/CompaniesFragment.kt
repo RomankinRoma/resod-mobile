@@ -32,6 +32,7 @@ class CompaniesFragment : Fragment() {
         val textView: TextView = binding.textCompanies
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+            textView.visibility = View.INVISIBLE
         }
         return root
     }

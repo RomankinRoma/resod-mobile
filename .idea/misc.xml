@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1925" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_seller.xml" value="0.1925" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/app_bar_main.xml" value="0.259375" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/content_main.xml" value="0.259375" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_companies.xml" value="0.1" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_rent.xml" value="0.176" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_sale.xml" value="0.1" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/nav_header_main.xml" value="0.259375" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2975" />
         <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2975" />

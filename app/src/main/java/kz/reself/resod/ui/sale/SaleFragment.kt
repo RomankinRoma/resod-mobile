@@ -31,6 +31,7 @@ class SaleFragment : Fragment() {
         val textView: TextView = binding.textSale
         saleViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+            textView.visibility = View.INVISIBLE
         }
         return root
     }
