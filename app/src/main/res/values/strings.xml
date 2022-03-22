@@ -11,4 +11,5 @@
     <string name="menu_sale">Sale</string>
     <string name="menu_rent">Rent</string>
     <string name="menu_companies">Companies</string>
+    <string name="button">Button</string>
 </resources>
