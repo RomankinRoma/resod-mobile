@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_home.xml" value="0.1825" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1925" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_seller.xml" value="0.1925" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/app_bar_main.xml" value="0.259375" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/content_main.xml" value="0.259375" />
-        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_companies.xml" value="0.1" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_companies.xml" value="0.4839650145772595" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_company.xml" value="0.1" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_rent.xml" value="0.176" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_sale.xml" value="0.1" />
@@ -35,12 +37,6 @@
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2975" />
       </map>
     </option>
-  </component>
-  <component name="EntryPointsManager">
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="lombok.AllArgsConstructor" />
-      <item index="1" class="java.lang.String" itemvalue="lombok.Data" />
-    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
