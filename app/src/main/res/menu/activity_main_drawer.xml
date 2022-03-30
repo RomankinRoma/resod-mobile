@@ -20,5 +20,9 @@
             android:id="@+id/nav_companies"
             android:icon="@drawable/ic_company"
             android:title="@string/menu_companies" />
+        <item
+            android:id="@+id/nav_specialists"
+            android:icon="@drawable/ic_seller_svgrepo_com"
+            android:title="@string/menu_specialists" />
     </group>
 </menu>

@@ -34,10 +34,12 @@ class RentFragment : Fragment() {
         _binding = FragmentRentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        // Recycler View
         val recyclerView = binding.fragmentRentRvRentBuilding
         recyclerView.adapter = buildingAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // textView
         val textView: TextView = binding.textRent
         rentViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
