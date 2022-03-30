@@ -38,6 +38,7 @@
             app:layout_constraintBottom_toTopOf="@id/fragment_company__companyDescription"
             app:layout_constraintVertical_weight="1" />
 
+        <!-- company description -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/fragment_company__companyDescription"
             android:layout_width="0dp"

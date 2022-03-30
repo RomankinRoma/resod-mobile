@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- company image -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fragment_building__buildingImg"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/home2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/black" />
+
+    <!-- ConstraintLayout box -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_building__buildingInfoBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/fragment_building__buildingImg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_building__buildingImg"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- building place and country -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_building__placeCountry"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Place and country text"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/fragment_building__likeBtn"
+            app:layout_constraintBottom_toTopOf="@id/fragment_building__buildingPrice"
+            app:layout_constraintVertical_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fragment_building__likeBtn"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/icon_like"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/fragment_building__placeCountry"/>
+
+        <!-- building price -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_building__buildingPrice"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="price"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_building__placeCountry"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/fragment_building__buildingAreaNumberOfRooms"
+            app:layout_constraintVertical_weight="1" />
+
+        <!-- building area and number of rooms -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_building__buildingAreaNumberOfRooms"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="area and number of rooms"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_building__buildingPrice"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/fragment_building__buildingCompanyName"
+            app:layout_constraintVertical_weight="1" />
+
+        <!-- building company name -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_building__buildingCompanyName"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="company name"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_building__buildingAreaNumberOfRooms"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- description -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_building__buildingDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHeight_max="45dp"
+        android:text="description"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/fragment_building__buildingImg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/green"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
