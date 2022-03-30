@@ -22,8 +22,8 @@ class CompanyAdapter(
         return CompanyViewHolder(view)
     }
 
-    override fun onBindViewHolder(viewHolder: CompanyViewHolder, i: Int) {
-        val company = companies[i]
+    override fun onBindViewHolder(viewHolder: CompanyViewHolder, position: Int) {
+        val company = companies[position]
         viewHolder.bind(company)
         viewHolder.itemView.tag = company
     }

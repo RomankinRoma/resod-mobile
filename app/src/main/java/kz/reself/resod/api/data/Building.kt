@@ -6,5 +6,6 @@ data class Building(
     val area: Double,
     val numberOfRooms: Int,
     val address: String,
-    val description: String
+    val description: String,
+    val imgUrl: Int
 )
