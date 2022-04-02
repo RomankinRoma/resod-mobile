@@ -13,4 +13,7 @@
     <string name="menu_companies">Companies</string>
     <string name="menu_specialists">Specialists</string>
     <string name="button">Button</string>
+
+    <!-- Building String -->
+    <string name="building_cost">%s, $</string>
 </resources>
