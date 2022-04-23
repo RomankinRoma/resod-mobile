@@ -22,4 +22,7 @@
     <color name="building_area_room_number">#202020</color>
     <color name="building_desc">#202020</color>
     <color name="building_company_name">#231D64</color>
+
+    <!-- Login -->
+    <color name="login_text">#231D64</color>
 </resources>

@@ -34,4 +34,10 @@
         android:name="kz.reself.resod.ui.specialists.SpecialistsFragment"
         android:label="@string/menu_specialists"
         tools:layout="@layout/fragment_specialists" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="kz.reself.resod.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

@@ -24,5 +24,9 @@
             android:id="@+id/nav_specialists"
             android:icon="@drawable/ic_seller_svgrepo_com"
             android:title="@string/menu_specialists" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_login"
+            android:title="@string/menu_login"/>
     </group>
 </menu>
