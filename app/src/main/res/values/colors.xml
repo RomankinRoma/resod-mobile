@@ -25,4 +25,8 @@
 
     <!-- Login -->
     <color name="login_text">#231D64</color>
+
+    <!-- Registration -->
+    <color name="registration_btn">#EAEBFA</color>
+    <color name="registration_btn_text">#4E5AFE</color>
 </resources>

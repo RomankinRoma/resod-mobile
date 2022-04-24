@@ -13,8 +13,13 @@
     <string name="menu_companies">Companies</string>
     <string name="menu_specialists">Specialists</string>
     <string name="menu_login">Login</string>
+
     <string name="button">Button</string>
+
     <string name="login_text">Войти в аккаунт</string>
+
+    <!-- Registration -->
+    <string name="registration_text">Создай свой аккаунт</string>
 
     <!-- Building String -->
     <string name="building_cost">%s, $</string>
