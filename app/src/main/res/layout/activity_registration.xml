@@ -13,12 +13,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         app:fontFamily="Nunito Sans"
         android:textSize="22sp"
         android:textColor="@color/login_text"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/activity_registration_linearLayoutForForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -42,7 +43,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragment_registration_textInputEditText_fullName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +62,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragment_registration_textInputEditText_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:inputType="textEmailAddress"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,12 +76,14 @@
             android:layout_marginBottom="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Пароль"
-            app:endIconMode="clear_text">
+            app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragment_registration_textInputEditText_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:lines="1"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,18 +92,45 @@
             android:id="@+id/fragment_registration_textInputLayout_passwordConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Подтвердите пароль"
-            app:endIconMode="clear_text">
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fragment_registration_textInputEditText_passwordConfirm"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:lines="1"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/activity_registration_linearLayoutForForm"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_registration_loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="У вас уже есть аккаунт?"
+            android:layout_marginRight="30dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/activity_registration_loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Войти"
+            app:cornerRadius="25dp"
+            android:backgroundTint="@color/registration_btn"
+            android:textColor="@color/registration_btn_text"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
