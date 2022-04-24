@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Resod">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -20,7 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RegistrationActivity"/>
+        <activity
+            android:name=".RegistrationActivity"
+            android:label="Регистрация" />
     </application>
 
 </manifest>
