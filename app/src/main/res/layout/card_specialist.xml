@@ -24,7 +24,7 @@
                 android:id="@+id/card_specialist__specialistImg"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                app:srcCompat="@drawable/s1"
+                app:srcCompat="@drawable/specialist_1"
                 android:scaleType="centerCrop"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -41,45 +41,40 @@
 
                 <!-- first and last name -->
                 <TextView
+                    android:id="@+id/card_specialist__fullName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title"
+                    android:lines="1"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <!-- speciality text -->
                 <TextView
+                    android:id="@+id/card_specialist__speciality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="speciality text"
+                    android:lines="1"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
                 <!-- speciality address -->
                 <TextView
+                    android:id="@+id/card_specialist__address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="Specialist address"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:lines="3"/>
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-
-<!--    <androidx.appcompat.widget.AppCompatImageView-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:src="@drawable/s1"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        />-->
 
 
 

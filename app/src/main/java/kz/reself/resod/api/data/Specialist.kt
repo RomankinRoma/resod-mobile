@@ -5,4 +5,5 @@ data class Specialist (
     val lastName: String,
     val status: String,
     val address: String,
+    val imgUrl: Int
  )
