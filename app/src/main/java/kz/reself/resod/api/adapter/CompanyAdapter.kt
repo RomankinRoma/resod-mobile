@@ -1,5 +1,6 @@
 package kz.reself.resod.api.adapter
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,9 +41,9 @@ class CompanyAdapter(
         private val companyImageView: ImageView = itemView.findViewById(R.id.fragment_company__companyImg)
 
         fun bind(company: Company) {
-            companyNameTextView.text = company.companyName
+            companyNameTextView.text = company.name
             companyDescriptionTextView.text = company.description
-            companySubDescriptionTextView.text = company.subDescription
+            companySubDescriptionTextView.text = Html.fromHtml(company.body)
             companyImageView.setImageResource(company.imgUrl)
         }
 
