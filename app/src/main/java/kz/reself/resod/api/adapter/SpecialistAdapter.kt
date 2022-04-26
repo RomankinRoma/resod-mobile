@@ -48,6 +48,6 @@ class SpecialistAdapter(
     }
 
     interface Listener {
-        fun onSpecialistClick(company: Specialist)
+        fun onSpecialistClick(specialist: Specialist)
     }
 }

@@ -1,6 +1,7 @@
 package kz.reself.resod.api.service
 
 import kz.reself.resod.api.model.AdData
+import kz.reself.resod.api.model.CompanyDTO
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -16,5 +17,8 @@ interface AdDataInterface {
 
     @GET("/resod-management/api/v1/public/ad-data/orgId/{id}")
     fun getAllByOrgId(@Path(value = "id")id:Long):Call<AdData>
+
+    @GET("/resod-management/api/v1/public/organization/all")
+    fun getAllCompany():Call<CompanyDTO>
 
 }

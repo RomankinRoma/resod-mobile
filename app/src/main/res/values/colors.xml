@@ -29,4 +29,9 @@
     <!-- Registration -->
     <color name="registration_btn">#EAEBFA</color>
     <color name="registration_btn_text">#4E5AFE</color>
+
+    <!-- Specialist Details -->
+    <color name="spe_details_fullName">#231D64</color>
+    <color name="spe_details_specialtyName">#9C9BA5</color>
+
 </resources>

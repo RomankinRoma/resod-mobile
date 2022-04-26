@@ -1,5 +1,6 @@
 package kz.reself.resod.ui.specialists
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kz.reself.resod.R
+import kz.reself.resod.SpecialistDetailsActivity
 import kz.reself.resod.api.adapter.SpecialistAdapter
 import kz.reself.resod.api.data.Specialist
 import kz.reself.resod.databinding.FragmentSpecialistsBinding
@@ -44,8 +46,9 @@ class SpecialistsFragment : Fragment(), SpecialistAdapter.Listener {
         _binding = null
     }
 
-    override fun onSpecialistClick(company: Specialist) {
-        TODO("Not yet implemented")
+    override fun onSpecialistClick(specialist: Specialist) {
+        val intent = Intent(this@SpecialistsFragment.requireContext(), SpecialistDetailsActivity::class.java)
+        startActivity(intent)
     }
 }
 
