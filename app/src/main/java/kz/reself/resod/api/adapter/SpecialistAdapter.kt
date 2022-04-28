@@ -41,9 +41,9 @@ class SpecialistAdapter(
 
         fun bind(specialist: Specialist) {
             specialistFullName.text = specialist.firstName + " " + specialist.lastName
-            specialistSpeciality.text = specialist.status
-            specialistAddress.text = specialist.address
-            specialistImageView.setImageResource(specialist.imgUrl)
+//            specialistSpeciality.text = specialist.status
+//            specialistAddress.text = specialist.address
+//            specialistImageView.setImageResource(specialist.imgUrl)
         }
     }
 

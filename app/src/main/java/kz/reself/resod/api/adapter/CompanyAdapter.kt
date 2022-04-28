@@ -1,12 +1,14 @@
 package kz.reself.resod.api.adapter
 
 import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import kz.reself.resod.R
 import kz.reself.resod.api.data.Company
 import kz.reself.resod.api.adapter.CompanyAdapter.CompanyViewHolder
@@ -43,8 +45,15 @@ class CompanyAdapter(
         fun bind(company: Company) {
             companyNameTextView.text = company.name
             companyDescriptionTextView.text = company.description
-            companySubDescriptionTextView.text = Html.fromHtml(company.body)
-            companyImageView.setImageResource(company.imgUrl)
+            Log.println(Log.INFO,"___COMPANY_BODY","___COMPANY_BODY: " + Gson().toJson(company.body))
+
+            if (company.body == null) {
+                companySubDescriptionTextView.text = ""
+            } else {
+                companySubDescriptionTextView.text = Html.fromHtml(company.body)
+            }
+
+//            companyImageView.setImageResource(company.imgUrl)
         }
 
     }

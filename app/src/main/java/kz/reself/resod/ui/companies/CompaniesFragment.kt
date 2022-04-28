@@ -7,32 +7,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
-import kz.reself.resod.R
 import kz.reself.resod.api.adapter.CompanyAdapter
 import kz.reself.resod.api.data.Company
-import kz.reself.resod.api.model.AdData
 import kz.reself.resod.api.model.CompanyDTO
 import kz.reself.resod.api.service.AdDataInterface
 import kz.reself.resod.api.service.NetworkHandler
 import kz.reself.resod.databinding.FragmentCompaniesBinding
-import kz.reself.resod.ui.companies.CompaniesViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CompaniesFragment : Fragment(), CompanyAdapter.Listener {
-//    private val companies = generateCompanyList().toMutableList()
-//    private val companyAdapter = CompanyAdapter(companies, this)
-
+    private val retrofit = NetworkHandler.retrofit.create(AdDataInterface::class.java)
+    private val companiesList: MutableList<Company> = mutableListOf()
     private var _binding: FragmentCompaniesBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -40,23 +33,22 @@ class CompaniesFragment : Fragment(), CompanyAdapter.Listener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
+
         val homeViewModel =
             ViewModelProvider(this).get(CompaniesViewModel::class.java)
 
         _binding = FragmentCompaniesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textCompanies
+//        val textView: TextView = binding.textCompanies
 
-//        val recyclerView: RecyclerView = binding.fragmentCompaniesRvCompanies
-//        recyclerView.adapter = companyAdapter
-//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         getCompanies()
 
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-            textView.visibility = View.INVISIBLE
-        }
+//        homeViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//            textView.visibility = View.INVISIBLE
+//        }
         return root
     }
 
@@ -79,68 +71,25 @@ class CompaniesFragment : Fragment(), CompanyAdapter.Listener {
     }
 
     private fun getCompanies() {
-        val retrofit = NetworkHandler.retrofit.create(AdDataInterface::class.java)
-
         val responseCompany = retrofit.getAllCompany()
 
         responseCompany.enqueue(object : Callback<CompanyDTO?> {
             override fun onResponse(call: Call<CompanyDTO?>, response: Response<CompanyDTO?>) {
                 showCompany(response.body()!!)
-                Log.println(Log.INFO,"ALL","ALL:"+ Gson().toJson(response.body()))
+                Log.println(Log.INFO,"GET_COMPANIES","COMPANIES_LIST:" + Gson().toJson(response.body()))
             }
 
             override fun onFailure(call: Call<CompanyDTO?>, t: Throwable) {
-                Log.e("ALL","ERROR:"+t.message)
+                Log.e("GET_COMPANIES","ERROR:" + t.message)
             }
         })
     }
 
     private fun showCompany(body: CompanyDTO) {
+        companiesList.addAll(body.content)
+
         val recyclerView: RecyclerView = binding.fragmentCompaniesRvCompanies
-        recyclerView.adapter = CompanyAdapter(body.content, this)
+        recyclerView.adapter = CompanyAdapter(companiesList, this)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 }
-
-//private fun generateCompanyList(): List<Company> {
-//    return listOf(
-//        Company(
-//            "Bazis",
-//            "BAZIS-А - флагман строительной",
-//            "Это жилые и административные здания, торговые и промышленные, здания спорта, культуры и образования, сельхозназначения, здания относящиеся к объектам инфраструктуры, а так же автомобильные и железные дороги, дамбы и плотины, автомобильные развязк",
-//                    R.drawable.company1
-//        ), Company(
-//            "RAMS Qazaqstan",
-//            "Строительная компания «RAMS Qazaqstan» Алматы. Компания была создана в августе 2004 года.",
-//            "В ноябре 2004 для торгового дома «АБДИ» находящегося по адресу Сейфуллина – Райымбека произведена входная группа.",
-//            R.drawable.company2
-//        ), Company(
-//            "Qazaq Stroy",
-//            "О КОМПАНИИ Qazaq Strоy – работает на строительном рынке с 2003 года.",
-//            "Qazaq Strоy – работает на строительном рынке с 2003 года.\n" +
-//                    "\n" +
-//                    "За это время компания зарекомендовала себя как ответственного застройщика предлагающего основной массе населения",
-//            R.drawable.company3
-//        ), Company(
-//            "K7 Group",
-//            "Строительный холдинг К7 GROUP — лидер рынка",
-//            "Мы предлагаем услуги по проектированию частных домов, коттеджей и коммерческих зданий с учетом всех ваших пожеланий,",
-//            R.drawable.company4
-//        ), Company(
-//            "Com 5",
-//            "Cpm desc 5",
-//            "Com sub desc 5",
-//            R.drawable.home1
-//        ), Company(
-//            "Com 5",
-//            "Cpm desc 5",
-//            "Com sub desc 5",
-//            R.drawable.home2
-//        ), Company(
-//            "Com 6",
-//            "Cpm desc 6",
-//            "Com sub desc 6",
-//            R.drawable.com11
-//        )
-//    )
-//}

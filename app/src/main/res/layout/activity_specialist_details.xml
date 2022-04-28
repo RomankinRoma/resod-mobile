@@ -12,7 +12,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/home2"
+        android:src="@drawable/specialist_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@color/black"
