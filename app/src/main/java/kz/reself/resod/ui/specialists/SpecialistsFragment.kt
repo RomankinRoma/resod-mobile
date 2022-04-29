@@ -64,7 +64,7 @@ class SpecialistsFragment : Fragment(), SpecialistAdapter.Listener {
     private fun showCompany(body: SpecialistDTO) {
         specialists.addAll(body.content)
         val recyclerView: RecyclerView = binding.fragmentSpecialistRv
-        recyclerView.adapter = SpecialistAdapter(specialists, this)
+        recyclerView.adapter = SpecialistAdapter(specialists, this, requireContext())
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
