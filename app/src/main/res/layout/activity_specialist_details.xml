@@ -1,157 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/activity_specialist_details__speImg"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/specialist_1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/black"
-        app:shapeAppearanceOverlay="@style/CircleImg"/>
-
-    <!-- Full Name -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_specialist_details__speFullName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__speImg"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Full Name"
-        android:textColor="@color/spe_details_fullName"/>
-
-    <!-- Speciality Name -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_specialist_details__specialtyName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Specialty Name"
-        app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__speImg"
-        app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__speFullName"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/spe_details_specialtyName"/>
-
-    <!-- Company name with text -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_specialist_details__CompanyName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Специалист компании «ComapyName»"
-        app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__speImg"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__specialtyName"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/spe_details_fullName"/>
-
-    <!-- Phone number -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_specialist_details__phoneNumber"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="+7 (777) 777 77 77"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__speImg"
-        android:textColor="@color/black"
-        android:drawableLeft="@drawable/ic_phone"
-        android:drawablePadding="5dp"/>
-
-    <!-- Whatsapp number -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_specialist_details__whatsappNumber"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="+7 (777) 777 77 77"
-        app:layout_constraintTop_toTopOf="@id/activity_specialist_details__phoneNumber"
-        app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__phoneNumber"
-        android:textColor="@color/black"
-        android:drawableLeft="@drawable/ic_whatsapp"
-        android:drawablePadding="5dp"/>
-
-    <!-- Email Address -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_specialist_details__emailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:text="email@gmail.com"
-        android:textColor="@color/black"
-        android:drawableLeft="@drawable/ic_paper_email"
-        app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__phoneNumber"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:drawablePadding="5dp"/>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/activity_specialist_details__specialistInfoLinearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__emailAddress"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintRight_toRightOf="parent">
+        android:layout_height="wrap_content">
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/activity_specialist_details__speImg"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@color/default_img"
+            app:shapeAppearanceOverlay="@style/CircleImg"/>
+
+        <!-- Full Name -->
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_specialist_details__speFullName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Предложения по продаже объектов"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__speImg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Full Name"
             android:textColor="@color/spe_details_fullName"/>
 
+        <!-- Speciality Name -->
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_specialist_details__specialtyName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Квартиры: 1"
-            android:textColor="@color/company_desc" />
+            android:text="Менеджер по продажам"
+            app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__speImg"
+            app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__speFullName"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/spe_details_specialtyName"/>
 
+        <!-- Company name with text -->
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_specialist_details__CompanyName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Дома: 4"
-            android:textColor="@color/company_desc"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Помещения: 1"
-            android:textColor="@color/company_desc"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Место работы: RAMS Qazaqstan"
+            android:text="Специалист компании "
+            app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__speImg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__specialtyName"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/spe_details_fullName"/>
 
+        <!-- Phone number -->
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_specialist_details__phoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="+7 (777) 777 77 77"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__speImg"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="5dp"/>
+
+        <!-- Whatsapp number -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_specialist_details__whatsappNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="+7 (777) 777 77 77"
+            app:layout_constraintTop_toTopOf="@id/activity_specialist_details__phoneNumber"
+            app:layout_constraintLeft_toRightOf="@id/activity_specialist_details__phoneNumber"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_whatsapp"
+            android:drawablePadding="5dp"/>
+
+        <!-- Email Address -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_specialist_details__emailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Про специалиста:"
-            android:textColor="@color/spe_details_fullName"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="email@gmail.com"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_paper_email"
+            app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__phoneNumber"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:drawablePadding="5dp"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/activity_specialist_details__specialistInfoLinearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Оказываю услуги на рынке недвижимости по следующим направлениям. 1. Продажа земельных участков коммерческого назначения; 2. Продажа квартир на вторичном рынке; 3. Первичная недвижимость от застройщиков; 4. Продажа коммерческой недвижимости;"
-            android:textColor="@color/spe_details_fullName"
-            android:gravity="left|right"/>
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/activity_specialist_details__emailAddress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintRight_toRightOf="parent">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Предложения по продаже объектов"
+                android:textColor="@color/spe_details_fullName"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_specialist_details__apartmentCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Квартиры: "
+                android:textColor="@color/company_desc" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_specialist_details__houseCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Дома: "
+                android:textColor="@color/company_desc"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_specialist_details__commerceCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Помещения: "
+                android:textColor="@color/company_desc"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_specialist_details__placeJobName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Место работы: "
+                android:textColor="@color/spe_details_fullName"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Про специалиста: "
+                android:textColor="@color/spe_details_fullName"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_specialist_details__description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Оказываю услуги на рынке недвижимости по следующим направлениям. 1. Продажа земельных участков коммерческого назначения; 2. Продажа квартир на вторичном рынке; 3. Первичная недвижимость от застройщиков; 4. Продажа коммерческой недвижимости;"
+                android:textColor="@color/spe_details_fullName"
+                android:gravity="left|right"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

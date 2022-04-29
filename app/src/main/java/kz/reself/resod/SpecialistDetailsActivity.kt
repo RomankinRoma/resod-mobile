@@ -3,6 +3,7 @@ package kz.reself.resod
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import kz.reself.resod.api.data.Specialist
 import kz.reself.resod.api.service.AdDataInterface
@@ -45,6 +46,19 @@ class SpecialistDetailsActivity : AppCompatActivity() {
     }
 
     private fun setSpecialist(specialist: Specialist) {
+        Log.println(Log.INFO,"GET_SPECIALIST_IMG_URL","GET_SPECIALIST_IMG_URL: " + specialist.storageUrl)
+
+        Glide.with(this).load(specialist.storageUrl).into(binding.activitySpecialistDetailsSpeImg)
+
         binding.activitySpecialistDetailsSpeFullName.text = specialist.firstName + " " + specialist.lastName
+        binding.activitySpecialistDetailsCompanyName.text = "Специалист компании " + "«" + specialist.organization.name + "»"
+        binding.activitySpecialistDetailsPhoneNumber.text = specialist.phoneNumber
+        binding.activitySpecialistDetailsWhatsappNumber.text = specialist.whatsappPhoneNumber
+        binding.activitySpecialistDetailsEmailAddress.text = specialist.email
+        binding.activitySpecialistDetailsApartmentCount.text = "Квартиры: " + specialist.apartmentCount
+        binding.activitySpecialistDetailsHouseCount.text = "Квартиры: " + specialist.houseCount
+        binding.activitySpecialistDetailsCommerceCount.text = "Помещения: " + specialist.commerceCount
+        binding.activitySpecialistDetailsPlaceJobName.text = "Место работы: " + specialist.organization.name
+        binding.activitySpecialistDetailsDescription.text = specialist.description
     }
 }

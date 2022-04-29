@@ -34,4 +34,6 @@
     <color name="spe_details_fullName">#231D64</color>
     <color name="spe_details_specialtyName">#9C9BA5</color>
 
+    <color name="default_img">#C6C2C2</color>
+
 </resources>
