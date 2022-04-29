@@ -1,6 +1,6 @@
 package kz.reself.resod.api.data
 
 data class CompanyImg(
-    val imgSrc: String,
+    val storageUrl: String,
     val organizationId: Long
 )

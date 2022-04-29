@@ -89,7 +89,7 @@ class CompaniesFragment : Fragment(), CompanyAdapter.Listener {
         companiesList.addAll(body.content)
 
         val recyclerView: RecyclerView = binding.fragmentCompaniesRvCompanies
-        recyclerView.adapter = CompanyAdapter(companiesList, this)
+        recyclerView.adapter = CompanyAdapter(companiesList, this, requireContext())
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 }

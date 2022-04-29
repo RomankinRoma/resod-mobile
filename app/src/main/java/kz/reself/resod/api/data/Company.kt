@@ -6,5 +6,5 @@ data class Company (
     val email: String,
     val id: Long,
     val name: String,
-    val imgUrlStr: String
+    var imgUrlStr: CompanyImg
 )
