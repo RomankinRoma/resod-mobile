@@ -11,6 +11,7 @@
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable-v24/vd_vector (1).xml" value="0.1525" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable-v24/vd_vector (2).xml" value="0.1525" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable-v24/vd_vector.xml" value="0.1525" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.186" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_check_mark.xml" value="0.115" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_company.xml" value="0.1825" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable/ic_error.xml" value="0.115" />
@@ -31,12 +32,13 @@
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/app_bar_main.xml" value="0.259375" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/card_specialist.xml" value="0.2" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/content_main.xml" value="0.259375" />
-        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_building.xml" value="0.264" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_building.xml" value="0.1" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_companies.xml" value="0.176" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_company.xml" value="0.264" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_live.xml" value="0.259375" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_login.xml" value="0.176" />
+        <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_rent.xml" value="0.1" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_sale.xml" value="0.264" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/layout/fragment_specialists.xml" value="0.1" />

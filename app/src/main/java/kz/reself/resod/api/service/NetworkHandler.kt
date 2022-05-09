@@ -9,10 +9,6 @@ import java.security.cert.CertificateException
 import java.security.cert.X509Certificate
 import javax.net.ssl.*
 
-
-/**
- * Created by Hitesh.Sahu on 11/23/2016.
- */
 object NetworkHandler {
     val retrofit: Retrofit
         get() = Retrofit.Builder()

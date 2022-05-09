@@ -52,15 +52,17 @@
                 app:layout_constraintVertical_weight="1"
                 android:lines="1"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageButton
                 android:id="@+id/fragment_building__likeBtn"
+                style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/icon_like"
+                android:background="#FFFFFF"
+                app:layout_constraintLeft_toRightOf="@id/fragment_building__placeCountry"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/fragment_building__placeCountry"/>
+                tools:src="@drawable/ic_baseline_favorite_border_24" />
 
             <!-- building price -->
             <androidx.appcompat.widget.AppCompatTextView

@@ -1,11 +1,13 @@
 package kz.reself.resod.api.data
 
+import kz.reself.resod.api.model.AdImage
+
 data class Building(
-    val companyName: String,
+    val name: String,
     val price: Int,
     val area: Double,
-    val numberOfRooms: Int,
-    val address: String,
+    val floorCount: Int,
     val description: String,
-    val imgUrl: Int
+    val images: List<AdImage>,
+    val organization: Organization
 )
