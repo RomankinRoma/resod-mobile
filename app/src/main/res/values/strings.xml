@@ -23,4 +23,5 @@
 
     <!-- Building String -->
     <string name="building_cost">%s, $</string>
+    <string name="broadcast">Broadcast</string>
 </resources>

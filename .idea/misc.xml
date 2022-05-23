@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/activity_broadcast.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/activity_registration.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/activity_specialist_details.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/app_bar_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/card_specialist.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/content_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_blank.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_broadcast.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_companies.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_company.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_live.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/fragment_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/layout/nav_header_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Rakhmatulla/resod-mobile/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1825" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable-v24/ic_login.xml" value="0.1835" />
         <entry key="..\:/Users/n_pazyl/AndroidStudioProjects/resod-mobile/app/src/main/res/drawable-v24/ic_paper_email.xml" value="0.1525" />
