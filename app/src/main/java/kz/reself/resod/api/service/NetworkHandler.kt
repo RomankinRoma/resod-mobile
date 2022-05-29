@@ -12,7 +12,7 @@ import javax.net.ssl.*
 object NetworkHandler {
     val retrofit: Retrofit
         get() = Retrofit.Builder()
-            .baseUrl("https://regloball.com")
+            .baseUrl("https://resod.kz")
             .addConverterFactory(GsonConverterFactory.create())
             .client(getUnsafeOkHttpClient())
             .build()

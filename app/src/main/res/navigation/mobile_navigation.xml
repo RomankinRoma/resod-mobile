@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_sale"
-        android:name="kz.reself.resod.ui.sale.SaleFragment"
-        android:label="@string/menu_sale"
-        tools:layout="@layout/fragment_sale" />
+        android:name="kz.reself.resod.ui.favorites.FavoritesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/nav_rent"
@@ -36,8 +36,18 @@
         tools:layout="@layout/fragment_specialists" />
 
     <fragment
+        android:id="@+id/nav_profile"
+        android:name="kz.reself.resod.ui.proflie.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
         android:id="@+id/nav_login"
         android:name="kz.reself.resod.ui.login.LoginFragment"
         android:label="@string/menu_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_fragment_login_nav_to_fragment_profile"
+            app:destination="@id/nav_profile"/>
+    </fragment>
 </navigation>

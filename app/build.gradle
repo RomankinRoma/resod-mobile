@@ -2,6 +2,9 @@ plugins {
 
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    // ROOM
+    id 'kotlin-kapt'
 }
 
 android {
@@ -15,6 +18,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // store database ROOM
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     buildTypes {
@@ -53,6 +63,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // MAYBE DELETE
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.8.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -60,4 +72,16 @@ dependencies {
     // GLIDE
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    // GOOGLE SIGN IN
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
+
+    //FACEBOOK SIGN IN
+    implementation 'com.facebook.android:facebook-login:latest.release'
+
+    // ROOM
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
 }

@@ -9,23 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
-        
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:background="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </TextView>
-
-        </LinearLayout>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/fragment_profile_userImg"
@@ -36,6 +19,66 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:background="@color/default_img"
             app:shapeAppearanceOverlay="@style/ProfileImg"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
+            app:layout_constraintTop_toTopOf="@id/fragment_profile_userImg"
+            android:text="Name: "
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_userCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
+            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userName"
+            android:text="Country: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_userCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
+            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCountry"
+            android:text="City: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_userPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
+            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCity"
+            android:text="Phone number: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_userDateOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
+            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userPhoneNumber"
+            android:text="Date of birth: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_userEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
+            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userDateOfBirth"
+            android:text="Email: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

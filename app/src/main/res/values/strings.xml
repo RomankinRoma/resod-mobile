@@ -23,4 +23,23 @@
 
     <!-- Building String -->
     <string name="building_cost">%s, $</string>
+        
+    <!-- filter values -->
+    <string-array name="filter_type_buy_values">
+        <item>Buy</item>
+        <item>Rent</item>
+    </string-array>
+
+    <string-array name="filter_range_slider_price">
+        <item>0</item>
+        <item>500000</item>
+    </string-array>
+
+    <!-- Facebook -->
+    <string name="facebook_app_id">3338459279723763</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">abfa57f7368b5e469a1ce7f01756f4de</string>
+
+
+    <string name="server_client_id">724422601071-ljnh3auupuipuqdkshfrs691h3ic4apb.apps.googleusercontent.com</string>
 </resources>

@@ -1,5 +1,6 @@
 package kz.reself.resod.ui.rent
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,16 +9,23 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import kz.reself.resod.FilterActivity
+import kz.reself.resod.RegistrationActivity
 import kz.reself.resod.api.adapter.BuildingAdapter
 import kz.reself.resod.api.data.Building
+import kz.reself.resod.api.data.FilterForm
 import kz.reself.resod.api.model.BuildingDTO
 import kz.reself.resod.api.service.AdDataInterface
 import kz.reself.resod.api.service.NetworkHandler
 import kz.reself.resod.databinding.FragmentRentBinding
+import kz.reself.resod.ui.FilterViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +36,7 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
     private var _binding: FragmentRentBinding? = null
     private var currentPage = 0
     private var maxPage = -1
+    private val filterViewModel: FilterViewModel by activityViewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -44,6 +53,11 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
         _binding = FragmentRentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        binding.fragmentRentFilterBtn.setOnClickListener {
+            val intent = Intent(this@RentFragment.requireContext(), FilterActivity::class.java)
+            startActivity(intent)
+        }
+
         // textView
         val textView: TextView = binding.textRent
         rentViewModel.text.observe(viewLifecycleOwner) {
@@ -52,6 +66,13 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
         }
 
         getBuilding(0, 10, 0, 1000000, false)
+
+        filterViewModel.filterForm.observe(viewLifecycleOwner, {filterForm ->
+            println("------ FILTER event")
+            if (filterForm.status == "submit") {
+                println("---- SUBMIT")
+            }
+        })
 
         return root
     }
@@ -88,7 +109,7 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
 
         val recyclerView = binding.fragmentRentRvRentBuilding
         if (!isAdd) {
-            recyclerView.adapter = BuildingAdapter(rentBuildingList, this)
+            recyclerView.adapter = BuildingAdapter(rentBuildingList, this, requireContext())
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)

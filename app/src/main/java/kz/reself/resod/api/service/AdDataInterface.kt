@@ -1,15 +1,15 @@
 package kz.reself.resod.api.service
 
 import kz.reself.resod.api.data.CompanyImg
+import kz.reself.resod.api.data.RegistrationForm
 import kz.reself.resod.api.data.Specialist
+import kz.reself.resod.api.data.User
 import kz.reself.resod.api.model.AdData
 import kz.reself.resod.api.model.BuildingDTO
 import kz.reself.resod.api.model.CompanyDTO
 import kz.reself.resod.api.model.SpecialistDTO
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.QueryMap
+import retrofit2.http.*
 
 interface AdDataInterface {
 
@@ -34,4 +34,6 @@ interface AdDataInterface {
     @GET("/resod-management/api/v1/public/employee/{id}")
     fun getSpecialistById(@Path(value = "id")id:String):Call<Specialist>
 
+    @POST("/api/public/user/v1/signup")
+    fun registrationUser(@Body registrationForm: RegistrationForm):Call<User>
 }

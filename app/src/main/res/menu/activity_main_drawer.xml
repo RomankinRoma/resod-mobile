@@ -10,12 +10,12 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_sale"
-            android:icon="@drawable/ic_seller"
-            android:title="@string/menu_sale" />
+            android:icon="@drawable/icon_like"
+            android:title="Favorites" />
         <item
             android:id="@+id/nav_rent"
-            android:icon="@drawable/ic_rent"
-            android:title="@string/menu_rent" />
+            android:icon="@drawable/ic_seller"
+            android:title="Sale/Rent" />
         <item
             android:id="@+id/nav_companies"
             android:icon="@drawable/ic_company"
@@ -24,9 +24,20 @@
             android:id="@+id/nav_specialists"
             android:icon="@drawable/ic_seller_svgrepo_com"
             android:title="@string/menu_specialists" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_paper_email"
+            android:title="Profile"/>
+
         <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_login"
             android:title="@string/menu_login"/>
+
+<!--        <item-->
+<!--            android:id="@+id/nav_logout_btn"-->
+<!--            android:icon="@drawable/ic_whatsapp"-->
+<!--            android:title="Logout"/>-->
     </group>
 </menu>

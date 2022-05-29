@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "424847556788",
+    "project_id": "resod-b3a6b",
+    "storage_bucket": "resod-b3a6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424847556788:android:244c374acdaf56860097e1",
+        "android_client_info": {
+          "package_name": "kz.reself.resod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424847556788-s1j6n1eq1boo3fo280t8729es3127f9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5E-dFRUmJ1Zq-l_5wTyqKm7mVzAvdAP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424847556788-s1j6n1eq1boo3fo280t8729es3127f9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,7 @@ package kz.reself.resod.api.data
 import kz.reself.resod.api.model.AdImage
 
 data class Building(
+    val id: Long,
     val name: String,
     val price: Int,
     val area: Double,

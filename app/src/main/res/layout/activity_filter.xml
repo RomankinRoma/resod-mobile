@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_filter__layoutBuyType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Тип покупки"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            android:id="@+id/activity_filter__autoCompleteBuyType"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Buy"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_filter__layoutBuildingType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__layoutBuyType"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Тип недвижимости"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+        <AutoCompleteTextView
+            android:id="@+id/activity_filter__autoCompleteBuildingType"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Home"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_filter__layoutCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Страна"
+        app:endIconMode="clear_text"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__layoutBuildingType">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/activity_filter__inputCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_filter__layoutCostStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="От "
+        app:endIconMode="clear_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="20dp"
+        app:layout_constraintRight_toLeftOf="@id/activity_filter__layoutCostEnd"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__layoutCountry">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/activity_filter__inputCostStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="numberDecimal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_filter__layoutCostEnd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="До "
+        app:endIconMode="clear_text"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/activity_filter__layoutCostStart"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__layoutCountry">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/activity_filter__inputCostEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="numberDecimal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/activity_filter__chipGroupNumberRoom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__layoutCostStart">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_filter__oneRoomChip"
+            style="@style/ChipStyle"
+            android:text="1 room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_filter__twoRoomChip"
+            style="@style/ChipStyle"
+            android:text="2 rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_filter__thirdRoomChip"
+            style="@style/ChipStyle"
+            android:text="3 room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/activity_filter__moreFourRoomChip"
+            style="@style/ChipStyle"
+            android:text="+4 room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/activity_filter__clearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Очистить"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__chipGroupNumberRoom"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/activity_filter__doFilterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Применить"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_filter__chipGroupNumberRoom"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
