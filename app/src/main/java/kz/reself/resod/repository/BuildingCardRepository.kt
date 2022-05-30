@@ -10,4 +10,8 @@ class BuildingCardRepository(private val buildingCardDao: BuildingCardDao) {
     suspend fun add(buildingCardEntity: BuildingCardEntity) {
         buildingCardDao.addBuildingCard(buildingCardEntity)
     }
+
+    suspend fun deleteAll() {
+        buildingCardDao.deleteAllBuildingCards()
+    }
 }

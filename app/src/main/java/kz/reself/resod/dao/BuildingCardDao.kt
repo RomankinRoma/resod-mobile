@@ -15,4 +15,7 @@ interface BuildingCardDao {
 
     @Query("SELECT * FROM building_cards ORDER BY createdDate DESC")
     fun readAllData(): LiveData<List<BuildingCardEntity>?>
+
+    @Query("DELETE FROM building_cards")
+    suspend fun deleteAllBuildingCards()
 }

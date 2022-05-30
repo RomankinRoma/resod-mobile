@@ -39,7 +39,11 @@
         android:id="@+id/nav_profile"
         android:name="kz.reself.resod.ui.proflie.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_fragment_profile_nav_to_fragment_home"
+            app:destination="@id/nav_home"/>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_login"

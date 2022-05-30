@@ -1,85 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:padding="20dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/fragment_profile_userImg"
+        android:layout_width="200dp"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/default_img"
+        app:shapeAppearanceOverlay="@style/ProfileImg"/>
+
+    <!-- USER NAME -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_profile_userImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:text="Name"
+        android:textSize="26sp"
+        android:textColor="@color/company_name"/>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/fragment_profile_userImg"
-            android:layout_width="120dp"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:background="@color/default_img"
-            app:shapeAppearanceOverlay="@style/ProfileImg"/>
+    <!-- USER EMAIL -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_profile_userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
-            app:layout_constraintTop_toTopOf="@id/fragment_profile_userImg"
-            android:text="Name: "
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
+    <!-- Country Label -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userCountry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userEmail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fragment_profile_userCity"
+        android:text="Country"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/company_name"
+        android:gravity="center"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_profile_userCountry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
-            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userName"
-            android:text="Country: "
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"/>
+    <!-- Country Value -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userCountryVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCountry"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fragment_profile_userCityVal"
+        android:text="CountryVal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_profile_userCity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
-            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCountry"
-            android:text="City: "
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"/>
+    <!-- City Label -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userCity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="City"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userEmail"
+        app:layout_constraintLeft_toRightOf="@id/fragment_profile_userCountry"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/company_name"
+        android:gravity="center"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_profile_userPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
-            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCity"
-            android:text="Phone number: "
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"/>
+    <!-- City Value -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userCityVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="City"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCity"
+        app:layout_constraintLeft_toRightOf="@id/fragment_profile_userCountryVal"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_profile_userDateOfBirth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
-            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userPhoneNumber"
-            android:text="Date of birth: "
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"/>
+    <!-- Phone Label -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCountryVal"
+        app:layout_constraintRight_toLeftOf="@id/fragment_profile_userDateOfBirth"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/company_name"
+        android:gravity="center"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_profile_userEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/fragment_profile_userImg"
-            app:layout_constraintTop_toBottomOf="@id/fragment_profile_userDateOfBirth"
-            android:text="Email: "
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"/>
+    <!-- Phone Value -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userPhoneNumberVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userPhoneNumber"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/fragment_profile_userDateOfBirthVal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- DateOfBirth Label -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userDateOfBirth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Date of birth"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userCityVal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/fragment_profile_userPhoneNumber"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/company_name"
+        android:gravity="center"/>
 
-</ScrollView>
+    <!-- DateOfBirth Value -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_profile_userDateOfBirthVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Date of birth Val"
+        app:layout_constraintTop_toBottomOf="@id/fragment_profile_userDateOfBirth"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/fragment_profile_userPhoneNumberVal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fragment_profile__logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="Logout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

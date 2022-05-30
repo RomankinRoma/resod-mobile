@@ -1,27 +1,23 @@
 package kz.reself.resod.ui.favorites
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.Gson
-import kotlinx.coroutines.launch
+import kz.reself.resod.APP_PREFERENCES
 import kz.reself.resod.api.adapter.BuildingAdapter
 import kz.reself.resod.api.data.Building
 import kz.reself.resod.api.service.AdDataInterface
 import kz.reself.resod.api.service.NetworkHandler
-import kz.reself.resod.dao.BuildingCardDao
 import kz.reself.resod.databinding.FragmentFavoritesBinding
-import kz.reself.resod.db.AppDatabase
 import kz.reself.resod.entity.BuildingCardEntity
 import kz.reself.resod.repository.BuildingCardRepository
 
@@ -30,8 +26,8 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
     private val buildingsList: MutableList<Building> = mutableListOf()
     private var _binding: FragmentFavoritesBinding? = null
     private lateinit var repositoryBuildingCard: BuildingCardRepository
-    private lateinit var buildingCardDao: BuildingCardDao
     private lateinit var favoriteViewModel: FavoritesViewModel
+    private lateinit var appSharedPreferences: SharedPreferences
 
     private val binding get() = _binding!!
 
@@ -42,21 +38,20 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
+        appSharedPreferences = requireContext().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+
         favoriteViewModel = ViewModelProvider(this).get(FavoritesViewModel::class.java)
 
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSale
-
-//        buildingCardDao = AppDatabase.getAppDatabase(requireContext()).getBuildingCardDao()
-//        repositoryBuildingCard = BuildingCardRepository(buildingCardDao)
-
         binding.fragmentFavoritesAbbFavoriteBtn.setOnClickListener {
             addBuindingCard()
         }
 
-
+        binding.fragmentFavoritesDeleteAllBtn.setOnClickListener {
+            deleteAll()
+        }
 
         val recyclerView: RecyclerView = binding.fragmentSaleRvBuildings
         val adapter = BuildingAdapter(buildingsList, this, requireContext())
@@ -72,12 +67,14 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
             }
         })
 
-//        saleViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//            textView.visibility = View.INVISIBLE
-//        }
-
         return root
+    }
+
+    private fun deleteAll() {
+        Toast.makeText(requireContext(), "Click By Delete All", Toast.LENGTH_SHORT).show()
+
+        favoriteViewModel.deleteAll()
+        Toast.makeText(requireContext(), "FINISH DELETED ALL", Toast.LENGTH_SHORT).show()
     }
 
     private fun addBuindingCard() {
@@ -98,27 +95,6 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
             )
         )
         Toast.makeText(requireContext(), "ADD NEW", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun getBuildingCards() {
-        val recyclerView: RecyclerView = binding.fragmentSaleRvBuildings
-        val adapter = BuildingAdapter(buildingsList, this, requireContext())
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        Toast.makeText(context, "GET LIST", Toast.LENGTH_SHORT).show()
-
-        lifecycle.coroutineScope.launch {
-            val list = repositoryBuildingCard.readAllData.value
-            Toast.makeText(context, "SET 1 LIST", Toast.LENGTH_SHORT).show()
-
-            if (list != null) {
-                val listR = list.map { elem -> elem.toBuilding()}
-                buildingsList.addAll(listR)
-                adapter.setList(buildingsList)
-                Toast.makeText(context, "SET LIST", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 
     override fun onDestroyView() {

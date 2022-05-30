@@ -32,7 +32,11 @@ data class UserEntity(
         surname = "",
         middlename = "",
         storageUrl = "",
-        errorRef = ""
+        errorRef = "",
+        phoneNumber = "",
+        birthDate = "",
+        city = "",
+        country = ""
     )
 
     companion object {

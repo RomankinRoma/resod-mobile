@@ -6,22 +6,6 @@
     android:layout_height="wrap_content"
     tools:context=".ui.favorites.FavoritesFragment">
 
-    <TextView
-        android:id="@+id/text_sale"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fragment_favorites__abbFavoriteBtn"
         android:layout_width="wrap_content"
@@ -30,11 +14,19 @@
         app:layout_constraintStart_toStartOf="parent"
         android:text="add favorites"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragment_favorites__deleteAllBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Delete All"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_sale__rvBuildings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_favorites__abbFavoriteBtn"
         app:layout_constraintStart_toStartOf="parent"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

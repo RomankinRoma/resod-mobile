@@ -62,6 +62,7 @@ object NetworkHandler {
 
 
             val builder = OkHttpClient.Builder()
+//            builder.addInterceptor(TokenInterceptor(context))
             builder.sslSocketFactory(sslSocketFactory, trustManager)
             builder.hostnameVerifier(HostnameVerifier { _, _ -> true })
             builder.build()

@@ -10,4 +10,9 @@ data class User (
     val password: String,
     val loginType: String,
     val storageUrl: String,
-    val errorRef: String)
+    val errorRef: String,
+    val birthDate: String,
+    val phoneNumber: String,
+    val city: String,
+    val country: String,
+)

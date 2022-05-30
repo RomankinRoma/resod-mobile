@@ -1,9 +1,6 @@
 package kz.reself.resod.api.service
 
-import kz.reself.resod.api.data.CompanyImg
-import kz.reself.resod.api.data.RegistrationForm
-import kz.reself.resod.api.data.Specialist
-import kz.reself.resod.api.data.User
+import kz.reself.resod.api.data.*
 import kz.reself.resod.api.model.AdData
 import kz.reself.resod.api.model.BuildingDTO
 import kz.reself.resod.api.model.CompanyDTO
@@ -36,4 +33,13 @@ interface AdDataInterface {
 
     @POST("/api/public/user/v1/signup")
     fun registrationUser(@Body registrationForm: RegistrationForm):Call<User>
+
+    @POST("/api/public/user/v1/login")
+    fun login(@Body loginForm: LoginForm): Call<LoginResponse>
+
+    @GET("/api/public/user/v1/users/email/{email}")
+    fun getUserByEmail(@Path("email") email: String): Call<User>
+
+    @POST("/api/public/user/v1/login/api/logout")
+    fun logoutUser(@Header("x-auth-token") token: String?): Call<String>
 }

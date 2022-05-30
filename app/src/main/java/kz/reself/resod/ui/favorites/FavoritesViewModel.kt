@@ -25,10 +25,10 @@ class FavoritesViewModel(application: Application) : AndroidViewModel(applicatio
             repository.add(buildingCardEntity)
         }
     }
-//    private val _text = MutableLiveData<String>().apply {
-//        value = "This is sale Fragment"
-//    }
-//    val text: LiveData<String> = _text
 
-
+    fun deleteAll() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
+        }
+    }
 }

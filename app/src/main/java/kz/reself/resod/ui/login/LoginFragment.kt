@@ -1,6 +1,8 @@
 package kz.reself.resod.ui.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -32,16 +35,33 @@ import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.message.
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.util.EntityUtils
 import kz.reself.resod.R
 import kz.reself.resod.RegistrationActivity
+import kz.reself.resod.api.data.LoginForm
+import kz.reself.resod.api.data.LoginResponse
+import kz.reself.resod.api.service.AdDataInterface
+import kz.reself.resod.api.service.NetworkHandler
 import kz.reself.resod.databinding.FragmentLoginBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 import java.util.Arrays.asList
 
+const val APP_PREFERENCES = "APP_PREFERENCES"
+
+const val USER_ID_KEY = "USER_ID_KEY"
+const val USER_EMAIL_KEY = "USER_EMAIL_KEY"
+const val USER_TOKEN_KEY = "USER_TOKEN_KEY"
+const val USER_LOGIN_TYPE_KEY = "USER_LOGIN_TYPE_KEY"
+const val USER_LOGIN_STATUS_KEY = "USER_LOGIN_STATUS_KEY"
 
 class LoginFragment : Fragment() {
+    private val retrofit = NetworkHandler.retrofit.create(AdDataInterface::class.java)
     private var _binding: FragmentLoginBinding? = null
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private var RC_SIGN_IN = 0
     private lateinit var callbackManager: CallbackManager
+    private lateinit var loginViewModel: LoginViewModel
+    private lateinit var appSharedPreferences: SharedPreferences
 //    private lateinit var accessToken: AccessToken
 
     private val binding get() = _binding!!
@@ -53,6 +73,10 @@ class LoginFragment : Fragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+        appSharedPreferences = requireContext().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+
         _binding = FragmentLoginBinding.inflate(inflater, container,false)
 
         val root: View = binding.root
@@ -60,6 +84,13 @@ class LoginFragment : Fragment() {
         binding.fragmentLoginRegistrationBtn.setOnClickListener {
             val intent = Intent(this@LoginFragment.requireContext(), RegistrationActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.fragmentLoginLoginBtn.setOnClickListener {
+            val login = binding.fragmentLoginTextInputEditTextLogin.text.toString()
+            val password = binding.fragmentLoginTextInputEditTextPassword.text.toString()
+
+            login(LoginForm(login, password))
         }
 
         // Facebook start
@@ -81,8 +112,7 @@ class LoginFragment : Fragment() {
             }
 
             override fun onSuccess(result: LoginResult) {
-                val intent = Intent(this@LoginFragment.requireContext(), RegistrationActivity::class.java)
-                startActivity(intent)
+                Navigation.findNavController(binding.root).navigate(R.id.action_fragment_login_nav_to_fragment_profile)
             }
         })
 
@@ -157,7 +187,7 @@ class LoginFragment : Fragment() {
                 print("------ TOKEN VAL ----: " + idToken)
                 Log.w("TOKEN_VAL", "TOKEN" + idToken)
 //                sendIdTokenByServer(idToken)
-                Navigation.findNavController(binding.root).navigate(R.id.action_fragment_login_nav_to_fragment_profile)
+                navigateToProfile()
             }
 
             // Signed in successfully, show authenticated UI.
@@ -166,6 +196,10 @@ class LoginFragment : Fragment() {
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("SIGN IN GOOGLE", "signInResult:failed code=" + e.statusCode)
         }
+    }
+
+    private fun navigateToProfile() {
+        Navigation.findNavController(binding.root).navigate(R.id.action_fragment_login_nav_to_fragment_profile)
     }
 
     private fun sendIdTokenByServer(idToken: String) {
@@ -186,5 +220,31 @@ class LoginFragment : Fragment() {
         } catch (e: IOException) {
             Log.w("GOOGLE_SIGN_IN_BACKED", "Error sending ID token to backend.", e)
         }
+    }
+
+    private fun login(loginForm: LoginForm) {
+        val responseCompanyImg = retrofit.login(loginForm)
+
+        responseCompanyImg.enqueue(object : Callback<LoginResponse?> {
+            override fun onResponse(call: Call<LoginResponse?>, response: Response<LoginResponse?>) {
+
+                if (response.isSuccessful) {
+                    loginViewModel.add(response.body()!!)
+                    val loginResponse = response.body()
+                    appSharedPreferences.edit()
+                        .putString(USER_ID_KEY, loginResponse?.id.toString())
+                        .putString(USER_EMAIL_KEY, loginResponse?.email)
+                        .putString(USER_TOKEN_KEY, loginResponse?.token)
+                        .putString(USER_LOGIN_TYPE_KEY, loginResponse?.loginType)
+                        .putString(USER_LOGIN_STATUS_KEY, "ok")
+                        .apply()
+                    navigateToProfile()
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse?>, t: Throwable) {
+                Log.e("GET_COMPANY_IMG","ERROR:" + t.message)
+            }
+        })
     }
 }
