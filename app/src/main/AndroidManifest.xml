@@ -32,9 +32,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".RegistrationActivity"
-            android:label="Регистрация" />
+<!--        <activity-->
+<!--            android:name=".RegistrationActivity"-->
+<!--            android:label="Регистрация" />-->
 
         <activity android:name=".FilterActivity"
             android:label="Filter" />

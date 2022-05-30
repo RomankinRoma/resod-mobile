@@ -34,7 +34,6 @@ import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.impl.cli
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.message.BasicNameValuePair
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.util.EntityUtils
 import kz.reself.resod.R
-import kz.reself.resod.RegistrationActivity
 import kz.reself.resod.api.data.LoginForm
 import kz.reself.resod.api.data.LoginResponse
 import kz.reself.resod.api.service.AdDataInterface
@@ -82,8 +81,7 @@ class LoginFragment : Fragment() {
         val root: View = binding.root
 
         binding.fragmentLoginRegistrationBtn.setOnClickListener {
-            val intent = Intent(this@LoginFragment.requireContext(), RegistrationActivity::class.java)
-            startActivity(intent)
+            Navigation.findNavController(binding.root).navigate(R.id.action_fragment_login_nav_to_fragment_registration)
         }
 
         binding.fragmentLoginLoginBtn.setOnClickListener {

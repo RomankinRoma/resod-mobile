@@ -10,17 +10,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import kz.reself.resod.FilterActivity
-import kz.reself.resod.RegistrationActivity
 import kz.reself.resod.api.adapter.BuildingAdapter
 import kz.reself.resod.api.data.Building
-import kz.reself.resod.api.data.FilterForm
 import kz.reself.resod.api.model.BuildingDTO
 import kz.reself.resod.api.service.AdDataInterface
 import kz.reself.resod.api.service.NetworkHandler
