@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
+import com.facebook.AccessToken
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -60,7 +61,7 @@ class ProfileFragment : Fragment() {
         appSharedPreferences = requireContext().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
         val email = appSharedPreferences.getString(USER_EMAIL_KEY, "")
 
-        if (!email.equals("")) {
+        if (acc == null && !email.equals("")) {
             getUserInfo(email)
         }
 
@@ -69,13 +70,13 @@ class ProfileFragment : Fragment() {
             logout(token)
         }
 
-//        if (acc != null) {
-//            binding.fragmentProfileUserName.text = acc?.displayName
-//            binding.fragmentProfileUserEmail.text = binding.fragmentProfileUserEmail.text.toString() + acc?.email
-//            Glide.with(requireContext()).load(acc?.photoUrl).into(binding.fragmentProfileUserImg)
-//        }
+        if (acc != null) {
+            binding.fragmentProfileUserName.text = acc?.displayName
+            binding.fragmentProfileUserEmail.text = binding.fragmentProfileUserEmail.text.toString() + acc?.email
+            Glide.with(requireContext()).load(acc?.photoUrl).into(binding.fragmentProfileUserImg)
+        }
 
-
+        val accessToken = AccessToken.getCurrentAccessToken()
 
         return root
     }

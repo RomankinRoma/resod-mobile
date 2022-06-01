@@ -18,7 +18,6 @@ import kz.reself.resod.*
 import kz.reself.resod.api.adapter.BuildingAdapter
 import kz.reself.resod.api.data.Building
 import kz.reself.resod.databinding.FragmentFavoritesBinding
-import kz.reself.resod.entity.BuildingCardEntity
 
 class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
     private val buildingsList: MutableList<Building> = mutableListOf()
@@ -67,7 +66,7 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
                     adapter.setList(listBuilding)
                 } else {
                     Log.w("CHANGE VAL FAVORITE","0")
-
+                    adapter.setList(listOf())
                     binding.favoriteListEmptyText.visibility = View.VISIBLE
                     binding.favoriteListEmptySubText.visibility = View.VISIBLE
                     binding.fragmentFavoritesListTitle.visibility = View.INVISIBLE
@@ -75,19 +74,20 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
             })
         } else {
             favoriteViewModel.readAllData.observe(viewLifecycleOwner, Observer { list ->
-                if (list != null) {
+                if (list?.size != 0) {
                     Log.w("CHANGE VAL DB","NOT NULL")
+                    Log.println(Log.INFO, "LIST", "val = " + Gson().toJson(list))
 
                     binding.favoriteListEmptyText.visibility = View.INVISIBLE
                     binding.favoriteListEmptySubText.visibility = View.INVISIBLE
                     binding.fragmentFavoritesListTitle.visibility = View.VISIBLE
 
-                    adapter.setList(list.map {
+                    adapter.setList(list!!.map {
                             elem -> elem.toBuilding()
                     })
                 } else {
                     Log.w("CHANGE VAL DB","NULL")
-
+                    adapter.setList(listOf())
                     binding.favoriteListEmptyText.visibility = View.VISIBLE
                     binding.favoriteListEmptySubText.visibility = View.VISIBLE
                     binding.fragmentFavoritesListTitle.visibility = View.INVISIBLE
@@ -96,33 +96,6 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
         }
 
         return root
-    }
-
-    private fun deleteAll() {
-        Toast.makeText(requireContext(), "Click By Delete All", Toast.LENGTH_SHORT).show()
-
-        favoriteViewModel.deleteAll()
-        Toast.makeText(requireContext(), "FINISH DELETED ALL", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun addBuindingCard() {
-        Toast.makeText(requireContext(), "Click By add favorite", Toast.LENGTH_SHORT).show()
-
-        favoriteViewModel.add(
-            BuildingCardEntity(
-                0,
-                1,
-                "TEST BUILDING",
-                1,
-                1.0,
-                1,
-                "DESC",
-                "https://sun9-north.userapi.com/sun9-82/s/v1/ig2/F0LFvqm6gktKrK5iBOcJt0c3VtxdH2_54vhd2Nmmau6PrCvLSIXbzhgPXmD3UNEiTEu5gLojfQ1OeruFw56wuoC6.jpg?size=1440x1440&quality=95&type=album",
-                "ORG",
-                System.currentTimeMillis()
-            )
-        )
-        Toast.makeText(requireContext(), "ADD NEW", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

@@ -138,7 +138,7 @@ class LoginFragment : Fragment() {
 
         if (account != null) {
             mGoogleSignInClient.signOut().addOnCompleteListener {
-                Toast.makeText(context, "User signOut!!!", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "User signOut!!!", Toast.LENGTH_SHORT).show()
             }
         }
         // Google end

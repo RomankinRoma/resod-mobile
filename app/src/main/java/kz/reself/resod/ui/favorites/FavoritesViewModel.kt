@@ -174,16 +174,17 @@ class FavoritesViewModel(application: Application) : AndroidViewModel(applicatio
 
             response.enqueue(object : Callback<ResponseBody?> {
                 override fun onResponse(call: Call<ResponseBody?>, response: Response<ResponseBody?>) {
+                    getFavoritesByRestApi()
                     Log.w("FAVORITE_ITEM_DELETE","resoponse: " + Gson().toJson(response.code()))
                     if (response.isSuccessful) {
                         if (updateList) {
                             Log.w("FAVORITE_ITEM_DELETE","UPDATE")
-                            getFavoritesByRestApi()
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
+                    getFavoritesByRestApi()
                     Log.e("FAVORITE_ITEM_DELETE","1ERROR:" + t.message)
                 }
             })

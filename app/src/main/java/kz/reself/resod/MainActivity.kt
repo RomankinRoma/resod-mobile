@@ -13,7 +13,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import kz.reself.resod.databinding.ActivityMainBinding
+import kz.reself.resod.ui.favorites.FavoritesViewModel
 
 const val APP_PREFERENCES = "APP_PREFERENCES"
 
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var appSharedPreferences: SharedPreferences
+    private lateinit var favoriteViewModel: FavoritesViewModel
 
     private val appSharedPreferencesListener = SharedPreferences.OnSharedPreferenceChangeListener { preferences, key ->
         Log.w("LISTENER PREFEREN NICO", "KEY = " + key)
@@ -39,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                 binding.navView.getMenu().findItem(R.id.nav_login)?.isVisible = false
                 binding.navView.getMenu().findItem(R.id.nav_profile)?.isVisible = true
                 binding.navView.getMenu().findItem(R.id.nav_chat)?.isVisible = true
+
+                favoriteViewModel.readAllData.observe(this, Observer { it ->
+
+                })
             } else {
                 binding.navView.getMenu().findItem(R.id.nav_login)?.isVisible = true
                 binding.navView.getMenu().findItem(R.id.nav_profile)?.isVisible = false
@@ -51,6 +59,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         appSharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+
+        favoriteViewModel = ViewModelProvider(this).get(FavoritesViewModel::class.java)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
