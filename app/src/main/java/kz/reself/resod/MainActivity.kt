@@ -38,9 +38,11 @@ class MainActivity : AppCompatActivity() {
             if (value.equals("ok")) {
                 binding.navView.getMenu().findItem(R.id.nav_login)?.isVisible = false
                 binding.navView.getMenu().findItem(R.id.nav_profile)?.isVisible = true
+                binding.navView.getMenu().findItem(R.id.nav_chat)?.isVisible = true
             } else {
                 binding.navView.getMenu().findItem(R.id.nav_login)?.isVisible = true
                 binding.navView.getMenu().findItem(R.id.nav_profile)?.isVisible = false
+                binding.navView.getMenu().findItem(R.id.nav_chat)?.isVisible = false
             }
         }
     }

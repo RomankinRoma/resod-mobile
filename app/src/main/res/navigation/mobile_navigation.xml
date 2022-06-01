@@ -35,6 +35,12 @@
         android:label="@string/menu_specialists"
         tools:layout="@layout/fragment_specialists" />
 
+    <activity
+        android:id="@+id/nav_broadcast"
+        android:name="kz.reself.resod.BroadcastActivity"
+        android:label="@string/broadcast"
+        tools:layout="@layout/activity_broadcast" />
+
     <fragment
         android:id="@+id/nav_profile"
         android:name="kz.reself.resod.ui.proflie.ProfileFragment"

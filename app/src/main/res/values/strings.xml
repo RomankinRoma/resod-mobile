@@ -46,7 +46,8 @@
 
     <!-- Building String -->
     <string name="building_cost">%s, $</string>
-        
+    <string name="broadcast">Broadcast</string>
+
     <!-- filter values -->
     <string-array name="filter_type_buy_values">
         <item>Buy</item>
