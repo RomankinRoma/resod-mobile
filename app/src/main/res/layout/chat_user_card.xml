@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/chat_user_card__box"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/chat_user_card__userImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/default_img"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircleImg"
+        android:padding="5dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/chat_user_card__userFullName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/chat_user_card__userImg"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="2dp"
+        android:hint="name surname"
+        android:lines="1"
+        android:layout_marginLeft="15dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/chat_user_card__lastMessage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/chat_user_card__userFullName"
+        app:layout_constraintLeft_toRightOf="@id/chat_user_card__userImg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="2dp"
+        android:hint="last message"
+        android:lines="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,27 @@
 <resources>
+    <!-- Specialist Page -->
+    <string name="specialist_from_company">Специалист компании «%s»</string>
+    <string name="specialist_from_company_hint">Специалист компании</string>
+    <string name="sales_manager">Менеджер по продажам</string>
+    <string name="phone_format_hint">+7 (777) 777 77 77</string>
+    <string name="email_hint">email@gmail.com</string>
+    <string name="building_count_title">Предложения по продаже объектов</string>
+    <string name="apartments_with_count">Квартиры: %d</string>
+    <string name="apartments_with_count_hint">Квартиры:</string>
+    <string name="house_with_count">Дома: %d</string>
+    <string name="house_with_count_hint">Дома:</string>
+    <string name="commerce_with_count">Помещения: %d</string>
+    <string name="commerce_with_count_hint">Помещения:</string>
+    <string name="place_of_work">Место работы: %s</string>
+    <string name="place_of_work_hint">Место работы:</string>
+    <string name="about_specialist">Про специалиста</string>
+    <string name="name_surname_hint">Имя Фамилия</string>
+
+    <!-- Favorites Page -->
+        <string name="favorite_page_list_title">Список понравившихся вам домов</string>
+    <string name="favorite_list_empty_text">Место для избранных объектов</string>
+    <string name="favorite_list_empty_subtext">Нажмите на ♡ возле объявлений, чтобы не потерять их</string>
+
     <string name="app_name">Resod</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

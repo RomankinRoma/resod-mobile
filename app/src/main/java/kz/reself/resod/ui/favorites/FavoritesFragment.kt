@@ -3,6 +3,7 @@ package kz.reself.resod.ui.favorites
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,20 +13,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kz.reself.resod.APP_PREFERENCES
+import com.google.gson.Gson
+import kz.reself.resod.*
 import kz.reself.resod.api.adapter.BuildingAdapter
 import kz.reself.resod.api.data.Building
-import kz.reself.resod.api.service.AdDataInterface
-import kz.reself.resod.api.service.NetworkHandler
 import kz.reself.resod.databinding.FragmentFavoritesBinding
 import kz.reself.resod.entity.BuildingCardEntity
-import kz.reself.resod.repository.BuildingCardRepository
 
 class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
-    private val retrofit = NetworkHandler.retrofit.create(AdDataInterface::class.java)
     private val buildingsList: MutableList<Building> = mutableListOf()
     private var _binding: FragmentFavoritesBinding? = null
-    private lateinit var repositoryBuildingCard: BuildingCardRepository
     private lateinit var favoriteViewModel: FavoritesViewModel
     private lateinit var appSharedPreferences: SharedPreferences
 
@@ -45,27 +42,58 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.fragmentFavoritesAbbFavoriteBtn.setOnClickListener {
-            addBuindingCard()
-        }
+        val token = appSharedPreferences.getString(USER_LOGIN_STATUS_KEY, "")
 
-        binding.fragmentFavoritesDeleteAllBtn.setOnClickListener {
-            deleteAll()
-        }
-
-        val recyclerView: RecyclerView = binding.fragmentSaleRvBuildings
+        val recyclerView: RecyclerView = binding.fragmentFavoritesRvBuildings
         val adapter = BuildingAdapter(buildingsList, this, requireContext())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        favoriteViewModel.readAllData.observe(viewLifecycleOwner, Observer { list ->
-            if (list != null) {
+        if (!token.equals("")) {
+            favoriteViewModel.listFavorites.observe(viewLifecycleOwner, Observer { list ->
+                if(list.content.size != 0) {
+                    Log.w("CHANGE VAL FAVORITE","MORE 0")
+                    binding.favoriteListEmptyText.visibility = View.INVISIBLE
+                    binding.favoriteListEmptySubText.visibility = View.INVISIBLE
+                    binding.fragmentFavoritesListTitle.visibility = View.VISIBLE
 
-                adapter.setList(list.map {
-                    elem -> elem.toBuilding()
-                })
-            }
-        })
+                    var listBuilding = list.content.map { elem ->
+                        elem.building
+                    }
+                    listBuilding = listBuilding.filter { x -> x != null }
+
+                    Log.w("LIST BUILDING = ",Gson().toJson(listBuilding))
+
+                    adapter.setList(listBuilding)
+                } else {
+                    Log.w("CHANGE VAL FAVORITE","0")
+
+                    binding.favoriteListEmptyText.visibility = View.VISIBLE
+                    binding.favoriteListEmptySubText.visibility = View.VISIBLE
+                    binding.fragmentFavoritesListTitle.visibility = View.INVISIBLE
+                }
+            })
+        } else {
+            favoriteViewModel.readAllData.observe(viewLifecycleOwner, Observer { list ->
+                if (list != null) {
+                    Log.w("CHANGE VAL DB","NOT NULL")
+
+                    binding.favoriteListEmptyText.visibility = View.INVISIBLE
+                    binding.favoriteListEmptySubText.visibility = View.INVISIBLE
+                    binding.fragmentFavoritesListTitle.visibility = View.VISIBLE
+
+                    adapter.setList(list.map {
+                            elem -> elem.toBuilding()
+                    })
+                } else {
+                    Log.w("CHANGE VAL DB","NULL")
+
+                    binding.favoriteListEmptyText.visibility = View.VISIBLE
+                    binding.favoriteListEmptySubText.visibility = View.VISIBLE
+                    binding.fragmentFavoritesListTitle.visibility = View.INVISIBLE
+                }
+            })
+        }
 
         return root
     }

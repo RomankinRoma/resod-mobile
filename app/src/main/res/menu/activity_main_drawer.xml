@@ -10,18 +10,22 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
+
         <item
             android:id="@+id/nav_sale"
             android:icon="@drawable/icon_like"
             android:title="Favorites" />
+
         <item
             android:id="@+id/nav_rent"
             android:icon="@drawable/ic_seller"
             android:title="Sale/Rent" />
+
         <item
             android:id="@+id/nav_companies"
             android:icon="@drawable/ic_company"
             android:title="@string/menu_companies" />
+
         <item
             android:id="@+id/nav_specialists"
             android:icon="@drawable/ic_seller_svgrepo_com"
@@ -31,6 +35,11 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_paper_email"
             android:title="Profile"/>
+
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_baseline_chat_24"
+            android:title="Chat"/>
 
         <item
             android:id="@+id/nav_login"

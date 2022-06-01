@@ -51,14 +51,14 @@ class SpecialistDetailsActivity : AppCompatActivity() {
         Glide.with(this).load(specialist.storageUrl).into(binding.activitySpecialistDetailsSpeImg)
 
         binding.activitySpecialistDetailsSpeFullName.text = specialist.firstName + " " + specialist.lastName
-        binding.activitySpecialistDetailsCompanyName.text = "Специалист компании " + "«" + specialist.organization.name + "»"
+        binding.activitySpecialistDetailsCompanyName.text = getString(R.string.specialist_from_company, specialist.organization.name)
         binding.activitySpecialistDetailsPhoneNumber.text = specialist.phoneNumber
         binding.activitySpecialistDetailsWhatsappNumber.text = specialist.whatsappPhoneNumber
         binding.activitySpecialistDetailsEmailAddress.text = specialist.email
-        binding.activitySpecialistDetailsApartmentCount.text = "Квартиры: " + specialist.apartmentCount
-        binding.activitySpecialistDetailsHouseCount.text = "Квартиры: " + specialist.houseCount
-        binding.activitySpecialistDetailsCommerceCount.text = "Помещения: " + specialist.commerceCount
-        binding.activitySpecialistDetailsPlaceJobName.text = "Место работы: " + specialist.organization.name
+        binding.activitySpecialistDetailsApartmentCount.text = getString(R.string.apartments_with_count, specialist.apartmentCount)
+        binding.activitySpecialistDetailsHouseCount.text = getString(R.string.house_with_count, specialist.houseCount)
+        binding.activitySpecialistDetailsCommerceCount.text = getString(R.string.commerce_with_count, specialist.commerceCount)
+        binding.activitySpecialistDetailsPlaceJobName.text = getString(R.string.place_of_work, specialist.organization.name)
         binding.activitySpecialistDetailsDescription.text = specialist.description
     }
 }

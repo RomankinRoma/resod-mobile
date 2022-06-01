@@ -41,24 +41,14 @@ class CompaniesFragment : Fragment(), CompanyAdapter.Listener {
         _binding = FragmentCompaniesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textCompanies
-
         getCompanies()
 
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//            textView.visibility = View.INVISIBLE
-//        }
         return root
     }
 
 //    private fun onAddClick() {
 //        companies.add(generateNewCompany())
 //        companyAdapter.notifyDataSetChanged()
-//    }
-
-//    private fun generateNewCompany(): Company {
-//        return Company("Company New", "New com desc", "New sub desc", R.drawable.com11)
 //    }
 
     override fun onCompanyClick(company: Company) {

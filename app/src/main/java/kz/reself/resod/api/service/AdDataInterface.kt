@@ -19,6 +19,9 @@ interface AdDataInterface {
     @GET("/resod-management/api/v1/public/ad-data/orgId/{id}")
     fun getAllByOrgId(@Path(value = "id")id:Long):Call<AdData>
 
+    @GET("/resod-management/api/v1/public/ad-data/{id}")
+    fun getBuildingById(@Path(value = "id") id: Long): Call<Building>
+
     @GET("/resod-management/api/v1/public/organization/all")
     fun getAllCompany():Call<CompanyDTO>
 
@@ -31,6 +34,9 @@ interface AdDataInterface {
     @GET("/resod-management/api/v1/public/employee/{id}")
     fun getSpecialistById(@Path(value = "id")id:String):Call<Specialist>
 
+    @GET("/resod-management/api/v1/public/employee/email/{email}")
+    fun getSpecialistByEmail(@Path(value = "email") email: String): Call<Specialist>
+
     @POST("/api/public/user/v1/signup")
     fun registrationUser(@Body registrationForm: RegistrationForm):Call<User>
 
@@ -42,4 +48,13 @@ interface AdDataInterface {
 
     @POST("/api/public/user/v1/login/api/logout")
     fun logoutUser(@Header("x-auth-token") token: String?): Call<String>
+
+    @GET("/chat-service/api/v1/private/conversation/author/{email}")
+    fun getAllConversationByAuthor(
+        @Header("x-auth-token") token: String?,
+        @Path("email") email: String?
+    ): Call<List<ChatUser>>
+
+    @GET("/resod-management/api/v1/private/ad-client/pagination")
+    fun getUserFavorites(@Header("x-auth-token") token: String?, @QueryMap options: Map<String, String>): Call<FavoritesPagination>
 }
