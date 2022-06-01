@@ -44,7 +44,8 @@ data class BuildingCardEntity(
         ),
         organization = Organization(
             name = organizationName
-        )
+        ),
+        isAddFavorites = true
     )
 
     companion object {

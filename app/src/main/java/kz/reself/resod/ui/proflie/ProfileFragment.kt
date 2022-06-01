@@ -81,6 +81,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logout(token: String?) {
+        clearStore()
         val responseCompanyImg = retrofit.logoutUser(token)
 
         responseCompanyImg.enqueue(object : Callback<String?> {

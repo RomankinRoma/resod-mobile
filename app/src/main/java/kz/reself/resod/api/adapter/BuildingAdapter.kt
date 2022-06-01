@@ -42,7 +42,8 @@ class BuildingAdapter (
         private val companyName: TextView = itemView.findViewById(R.id.fragment_building__buildingCompanyName)
         private val description: TextView = itemView.findViewById(R.id.fragment_building__buildingDescription)
         private val imgUrl: ImageView = itemView.findViewById(R.id.fragment_building__buildingImg)
-        private val favoriteBtn: ImageButton = itemView.findViewById(R.id.fragment_building__likeBtn)
+        private val favoriteBtnAdd: TextView = itemView.findViewById(R.id.fragment_building__likeBtnAdd)
+        private val favoriteBtnRemove: TextView = itemView.findViewById(R.id.fragment_building__likeBtnRemove)
 
         fun bind(building: Building, onFavoriteClickListener: Listener, context: Context) {
             placeAndCountry.text = building.name
@@ -50,20 +51,42 @@ class BuildingAdapter (
             areaAndNumber.text = building.area.toString()
             companyName.text = building.organization.name
             description.text = building.description
+            favoriteBtnRemove.visibility = View.GONE
+
+            itemView.setOnClickListener {
+                onFavoriteClickListener.onFavoriteClick(building)
+            }
 
             if (building.images.size > 0 && building.images[0].storageUrl != null) {
                 Glide.with(context).load(building.images[0].storageUrl).into(imgUrl)
             }
-//            imgUrl.setImageResource(building.imgUrl)
 
-            favoriteBtn.setOnClickListener {
-                onFavoriteClickListener.onFavoriteClick(building)
+            favoriteBtnAdd.setOnClickListener {
+                favoriteBtnAdd.visibility = View.GONE
+                favoriteBtnRemove.visibility = View.VISIBLE
+                onFavoriteClickListener.onLikeBtnAdd(building)
+            }
+
+            favoriteBtnRemove.setOnClickListener {
+                favoriteBtnRemove.visibility = View.GONE
+                favoriteBtnAdd.visibility = View.VISIBLE
+                onFavoriteClickListener.onLikeBtnRemove(building)
+            }
+
+            if (building.isAddFavorites == true) {
+                favoriteBtnRemove.visibility = View.VISIBLE
+                favoriteBtnAdd.visibility = View.GONE
+            } else {
+                favoriteBtnRemove.visibility = View.GONE
+                favoriteBtnAdd.visibility = View.VISIBLE
             }
         }
     }
 
     interface Listener {
         fun onFavoriteClick(building: Building)
+        fun onLikeBtnAdd(building: Building)
+        fun onLikeBtnRemove(building: Building)
     }
 
     fun setList(list: List<Building>) {

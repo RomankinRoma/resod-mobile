@@ -47,22 +47,29 @@
                 android:textColor="@color/building_place"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/fragment_building__likeBtn"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="30dp"
                 app:layout_constraintBottom_toTopOf="@id/fragment_building__buildingPrice"
                 app:layout_constraintVertical_weight="1"
                 android:lines="1"/>
 
-            <ImageButton
-                android:id="@+id/fragment_building__likeBtn"
-                style="@style/Widget.AppCompat.ImageButton"
-                android:layout_width="20dp"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fragment_building__likeBtnRemove"
+                android:layout_width="25dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="5dp"
-                android:background="#FFFFFF"
-                app:layout_constraintLeft_toRightOf="@id/fragment_building__placeCountry"
+                android:background="#fff"
+                android:drawableStart="@drawable/ic_baseline_favorite_24"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_baseline_favorite_border_24" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fragment_building__likeBtnAdd"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="#fff"
+                android:drawableStart="@drawable/ic_baseline_favorite_border_24"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- building price -->
             <androidx.appcompat.widget.AppCompatTextView

@@ -1,6 +1,8 @@
 package kz.reself.resod.ui.rent
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,18 +12,23 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import kz.reself.resod.APP_PREFERENCES
 import kz.reself.resod.FilterActivity
+import kz.reself.resod.USER_TOKEN_KEY
 import kz.reself.resod.api.adapter.BuildingAdapter
 import kz.reself.resod.api.data.Building
 import kz.reself.resod.api.model.BuildingDTO
 import kz.reself.resod.api.service.AdDataInterface
 import kz.reself.resod.api.service.NetworkHandler
 import kz.reself.resod.databinding.FragmentRentBinding
+import kz.reself.resod.entity.BuildingCardEntity
 import kz.reself.resod.ui.FilterViewModel
+import kz.reself.resod.ui.favorites.FavoritesViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,6 +40,8 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
     private var currentPage = 0
     private var maxPage = -1
     private val filterViewModel: FilterViewModel by activityViewModels()
+    private lateinit var favoriteViewModel: FavoritesViewModel
+    private lateinit var appSharedPreferences: SharedPreferences
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -45,6 +54,10 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
     ): View {
         val rentViewModel =
             ViewModelProvider(this).get(RentViewModel::class.java)
+
+        favoriteViewModel = ViewModelProvider(this).get(FavoritesViewModel::class.java)
+
+        appSharedPreferences = requireContext().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
 
         _binding = FragmentRentBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -129,8 +142,28 @@ class RentFragment : Fragment(), BuildingAdapter.Listener {
         _binding = null
     }
 
-    // click by favorite imgButton
     override fun onFavoriteClick(building: Building) {
-        Toast.makeText(context, "Click by object", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Click CARD", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onLikeBtnAdd(building: Building) {
+        Toast.makeText(context, "Click ADD F", Toast.LENGTH_SHORT).show()
+
+        val token = appSharedPreferences.getString(USER_TOKEN_KEY, "")
+
+        if (token.equals("")) {
+            Log.w("ADD_CLICK", "WAS ADDED")
+            favoriteViewModel.getUserByIdInDb(building.id).observe(viewLifecycleOwner, Observer { it ->
+                if (it == null) {
+                    favoriteViewModel.add(BuildingCardEntity.fromBuildingCard(building))
+                }
+            })
+        } else {
+            favoriteViewModel.add(building.id)
+        }
+    }
+
+    override fun onLikeBtnRemove(building: Building) {
+
     }
 }

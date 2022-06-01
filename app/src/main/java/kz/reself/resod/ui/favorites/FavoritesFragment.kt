@@ -49,7 +49,7 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        if (!token.equals("")) {
+        if (!token.equals("") && !token.equals("no")) {
             favoriteViewModel.listFavorites.observe(viewLifecycleOwner, Observer { list ->
                 if(list.content.size != 0) {
                     Log.w("CHANGE VAL FAVORITE","MORE 0")
@@ -131,6 +131,22 @@ class FavoritesFragment : Fragment(), BuildingAdapter.Listener {
     }
 
     override fun onFavoriteClick(building: Building) {
-        Toast.makeText(context, "Click by object", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Click CARD", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onLikeBtnAdd(building: Building) {
+        Toast.makeText(context, "Click ADD F", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onLikeBtnRemove(building: Building) {
+        Toast.makeText(context, "Click REMOVE F", Toast.LENGTH_SHORT).show()
+
+        val loginStatus = appSharedPreferences.getString(USER_LOGIN_STATUS_KEY, "")
+
+        if (loginStatus.equals("no")) {
+            favoriteViewModel.deleteByIdKey(building.id)
+        } else {
+            favoriteViewModel.deleteFavorite(building.id, true)
+        }
     }
 }

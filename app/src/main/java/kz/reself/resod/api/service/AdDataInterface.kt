@@ -1,11 +1,14 @@
 package kz.reself.resod.api.service
 
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpStatus
 import kz.reself.resod.api.data.*
 import kz.reself.resod.api.model.AdData
 import kz.reself.resod.api.model.BuildingDTO
 import kz.reself.resod.api.model.CompanyDTO
 import kz.reself.resod.api.model.SpecialistDTO
+import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface AdDataInterface {
@@ -57,4 +60,13 @@ interface AdDataInterface {
 
     @GET("/resod-management/api/v1/private/ad-client/pagination")
     fun getUserFavorites(@Header("x-auth-token") token: String?, @QueryMap options: Map<String, String>): Call<FavoritesPagination>
+
+    @DELETE("/resod-management/api/v1/private/ad-client/delete/{buildingId}/{clientId}")
+    fun deleteFavorite(
+        @Header("x-auth-token") token: String?,
+        @Path("buildingId") buildingId: Long,
+        @Path("clientId") clientId: Long?): Call<ResponseBody>
+
+    @POST("/resod-management/api/v1/private/ad-client")
+    fun addFavorite(@Header("x-auth-token") token: String?, @Body body: FavoritesPaginationContentDTO): Call<FavoritesPaginationContent>
 }

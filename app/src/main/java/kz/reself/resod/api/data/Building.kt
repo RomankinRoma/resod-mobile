@@ -10,5 +10,6 @@ data class Building(
     val floorCount: Int,
     val description: String,
     val images: List<AdImage>,
-    val organization: Organization
+    val organization: Organization,
+    var isAddFavorites: Boolean
 )
