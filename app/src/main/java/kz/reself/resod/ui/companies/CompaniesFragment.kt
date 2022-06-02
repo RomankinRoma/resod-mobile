@@ -1,5 +1,6 @@
 package kz.reself.resod.ui.companies
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -7,10 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import kz.reself.resod.CompanyDetailsActivity
 import kz.reself.resod.api.adapter.CompanyAdapter
 import kz.reself.resod.api.data.Company
 import kz.reself.resod.api.model.CompanyDTO
@@ -52,7 +53,10 @@ class CompaniesFragment : Fragment(), CompanyAdapter.Listener {
 //    }
 
     override fun onCompanyClick(company: Company) {
-        Toast.makeText(context, "Click by company", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this@CompaniesFragment.requireContext(), CompanyDetailsActivity::class.java).also {
+            it.putExtra("id", company.id.toString())
+            startActivity(it)
+        }
     }
 
     override fun onDestroyView() {

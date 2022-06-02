@@ -45,7 +45,7 @@ class FilterActivity : AppCompatActivity() {
 
         printFilterForm()
 
-        binding.activityFilterInputCountry.setText(filterViewModel.filterForm.value?.country)
+//        binding.activityFilterInputCountry.setText(filterViewModel.filterForm.value?.country)
 
 //        filterViewModel.filterFormData.observe(this, {
 //            binding.activityFilterAutoCompleteBuyType.setSelection(getBuyTypeSelectionIndex(it.buyType))

@@ -1,84 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
-    <!-- Company Image -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/activity_company_details__companyImg"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/default_img"
-        app:shapeAppearanceOverlay="@style/ProfileImg"/>
-
-    <!-- Company Name -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_company_details__companyName"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyImg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="24dp"
-        android:hint="Company Name"
-        android:layout_marginTop="5dp" />
+        android:padding="20dp">
 
-    <!-- Company Email -->
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_company_details__companyEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="16dp"
-        android:hint="Company Email" />
+        <!-- Company Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/activity_company_details__companyImg"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/default_img"
+            android:src="@drawable/speee"
+            app:shapeAppearanceOverlay="@style/ProfileImg"/>
 
-    <!-- Company Phone -->
-    <TextView
-        android:id="@+id/activity_company_details__companyPhone"
-        app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyEmail"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="company phone"/>
+        <!-- Company Name -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_company_details__companyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24dp"
+            android:hint="Company Name"
+            android:layout_marginTop="5dp" />
 
-    <!-- Company Description -->
-    <TextView
-        android:id="@+id/activity_company_details__companyDescription"
-        app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyPhone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="company description"/>
+        <!-- Company Email -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_company_details__companyEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16dp"
+            android:hint="Company Email" />
 
-    <!-- Company Service -->
-    <TextView
-        android:id="@+id/activity_company_details__companyService"
-        app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyDescription"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="company service"/>
+        <!-- Company Phone -->
+        <TextView
+            android:id="@+id/activity_company_details__companyPhone"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyEmail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="company phone"
+            android:drawableStart="@drawable/ic_baseline_phone_24"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/activity_company_details__companyViewPager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyService"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <!-- Company Description -->
+        <TextView
+            android:id="@+id/activity_company_details__companyDescription"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="company description"/>
+
+        <!-- Company Service -->
+        <TextView
+            android:id="@+id/activity_company_details__companyService"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="company service"/>
+
+        <TextView
+            android:id="@+id/activity_company_details__labelOnSale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__companyService"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="On Sale"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:id="@+id/activity_company_details__comBtn"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/activity_company_details__rView"
+            android:textSize="10sp"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:text="Apartment"/>
+
+        <Button
+            android:id="@+id/activity_company_details__vilBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            app:layout_constraintRight_toLeftOf="@id/activity_company_details__comBtn"
+            app:layout_constraintBottom_toTopOf="@id/activity_company_details__rView"
+            android:textSize="10sp"
+            android:padding="0dp"
+            android:layout_marginRight="10dp"
+            android:text="Villa"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_company_details__rView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/activity_company_details__labelOnSale"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:scrollbars="horizontal" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

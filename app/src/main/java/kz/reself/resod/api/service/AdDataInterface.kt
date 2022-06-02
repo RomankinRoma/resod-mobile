@@ -16,6 +16,9 @@ interface AdDataInterface {
     @GET("/resod-management/api/v1/public/ad-data/sortedApproved")
     fun getSortedData():Call<Map<String, List<AdData>>>
 
+    @GET("/resod-management/api/v1/public/ad-data/sortedApproved/{id}")
+    fun getSortedDataByCompanyId(@Path("id") id: Long):Call<Map<String, List<Building>>>
+
     @GET("/resod-management/api/v1/public/ad-data/paginationApproved")
     fun getAllBuilding(@QueryMap options: Map<String, String>):Call<BuildingDTO>
 
@@ -69,4 +72,7 @@ interface AdDataInterface {
 
     @POST("/resod-management/api/v1/private/ad-client")
     fun addFavorite(@Header("x-auth-token") token: String?, @Body body: FavoritesPaginationContentDTO): Call<FavoritesPaginationContent>
+
+    @GET("/resod-management/api/v1/public/organization/{id}")
+    fun getCompanyById(@Path("id") id: Long): Call<Company>
 }
