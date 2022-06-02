@@ -37,13 +37,13 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        val button: Button = binding.button
-        button.setOnClickListener(View.OnClickListener { view -> getAdData() })
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        getAdData()
+//        val textView: TextView = binding.textHome
+//        val button: Button = binding.button
+//        button.setOnClickListener(View.OnClickListener { view -> getAdData() })
+//        homeViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+//        getAdData()
         return root
     }
     private fun getAdData() {
